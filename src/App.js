@@ -5,10 +5,10 @@ import "./App.css";
 
 function App() {
   const todos = [
-    { id: 1, item: "Todos" },
-    { id: 2, item: "Todos" },
-    { id: 3, item: "Todos" },
-    { id: 4, item: "Todos" }
+    { id: 1, title: "Javascript" },
+    { id: 2, title: "React" },
+    { id: 3, title: "NodeJS" },
+    { id: 4, title: "Express" }
   ];
 
   return (

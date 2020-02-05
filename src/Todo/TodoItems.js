@@ -1,5 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function TodoItem(props) {
-  return <li>{props.result}</li>;
+function TodoItem({ index, result }) {
+  return (
+    <li>
+      {index + 1} {result}
+    </li>
+  );
 }
+
+TodoItem.propTypes = {
+  result: PropTypes.object.isRequired,
+  index: PropTypes.number
+};
+
+export default TodoItem;
