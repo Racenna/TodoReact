@@ -10,7 +10,7 @@ function TodoItem({ index, result }) {
 }
 
 TodoItem.propTypes = {
-  result: PropTypes.object.isRequired,
+  result: PropTypes.string.isRequired,
   index: PropTypes.number
 };
 
