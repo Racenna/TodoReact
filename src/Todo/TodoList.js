@@ -7,7 +7,12 @@ function TodoList(props) {
     <div>
       <ul>
         {props.todos.map((todo, index) => (
-          <TodoItem key={todo.id} result={todo.title} index={index} />
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            index={index}
+            onChange={props.onChange}
+          />
         ))}
       </ul>
     </div>
@@ -15,7 +20,8 @@ function TodoList(props) {
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.object).isRequired
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default TodoList;
