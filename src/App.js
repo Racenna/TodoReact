@@ -6,10 +6,10 @@ import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, completed: false, title: "Javascript" },
-    { id: 2, completed: false, title: "React" },
-    { id: 3, completed: false, title: "NodeJS" },
-    { id: 4, completed: false, title: "Express" }
+    { id: Date.now() + 1, completed: false, title: "Javascript" },
+    { id: Date.now() + 2, completed: false, title: "React" },
+    { id: Date.now() + 3, completed: false, title: "NodeJS" },
+    { id: Date.now() + 4, completed: false, title: "Express" }
   ]);
 
   function changeTodo(id) {
@@ -28,12 +28,29 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
+  function todoAdd(title) {
+    setTodos(
+      // todos.push({
+      //   id: Date.now(),
+      //   completed: false,
+      //   title
+      // })
+      todos.concat([
+        {
+          id: Date.now(),
+          completed: false,
+          title
+        }
+      ])
+    );
+  }
+
   return (
     <Context.Provider value={{ deleteTodo }}>
       <div className="App">
         <h1>Todos React</h1>
 
-        <TodoAdd />
+        <TodoAdd onCreate={todoAdd} />
         {todos.length ? (
           <TodoList todos={todos} onChange={changeTodo} />
         ) : (
