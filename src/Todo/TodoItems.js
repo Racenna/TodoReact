@@ -2,25 +2,22 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import Context from "../context";
 
-function TodoItem({ index, todo, onChange }) {
+function TodoItem({ todo, onChange }) {
   const { deleteTodo } = useContext(Context);
   console.log("todo", todo);
   return (
-    <li>
+    <li className="TodoItem">
       <span>
         <input type="checkbox" onChange={onChange.bind(null, todo.id)} />
-        {index + 1}
-        &nbsp;
         {todo.title}
-        <button onClick={deleteTodo.bind(null, todo.id)}>x</button>
       </span>
+      <button onClick={deleteTodo.bind(null, todo.id)}>X</button>
     </li>
   );
 }
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  index: PropTypes.number,
   onChange: PropTypes.func.isRequired
 };
 

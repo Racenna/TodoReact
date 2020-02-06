@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 function TodoAdd({ onCreate }) {
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState('');
 
   function submitHandler(e) {
     e.preventDefault();
@@ -12,11 +12,18 @@ function TodoAdd({ onCreate }) {
       setValue("");
     }
   }
+
   return (
-    <form onSubmit={submitHandler}>
-      <input value={value} onChange={e => setValue(e.target.value)} />
-      <button type="submit">Add</button>
-    </form>
+    <div className="TodoAdd">
+      <form onSubmit={submitHandler}>
+        <input
+          placeholder="Insert todo"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        />
+        <button type="submit">Add todo</button>
+      </form>
+    </div>
   );
 }
 

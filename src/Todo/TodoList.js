@@ -4,15 +4,10 @@ import TodoItem from "./TodoItems";
 
 function TodoList(props) {
   return (
-    <div>
+    <div className="TodoList">
       <ul>
-        {props.todos.map((todo, index) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            index={index}
-            onChange={props.onChange}
-          />
+        {props.todos.map(todo => (
+          <TodoItem key={todo.id} todo={todo} onChange={props.onChange} />
         ))}
       </ul>
     </div>
